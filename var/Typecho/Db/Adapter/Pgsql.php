@@ -115,7 +115,7 @@ class Pgsql implements Adapter
 
     /**
      * @param resource $resource
-     * @return array|null
+     * @return array
      */
     public function fetchAll($resource): array
     {
@@ -142,6 +142,6 @@ class Pgsql implements Adapter
      */
     public function quoteValue($string): string
     {
-        return '\'' . pg_escape_string($string) . '\'';
+        return '\'' . str_replace('\'', '\'\'', $string) . '\'';
     }
 }
