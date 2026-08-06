@@ -25,8 +25,8 @@
                 <div class="link-group">
                     <h4>快速链接</h4>
                     <ul>
-                        <li><a href="https://dl.foxmoe.top" target="_blank">灯狐苑网盘</a></li>
-                        <li><a href="https://img.foxmoe.top" target="_blank">灯狐苑图床</a></li>
+                        <li><a href="https://example.com" target="_blank">示例</a></li>
+                        <li><a href="https://example.com" target="_blank">示例</a></li>
                         <li><a href="/rss.xml">RSS</a></li>
                         <li><a href="/sitemap.xml">网站地图</a></li>
                     </ul>
@@ -34,9 +34,9 @@
                 <div class="link-group">
                     <h4>联系方式</h4>
                     <ul>
-                        <li><a href="https://github.com/foxmoe" target="_blank">GitHub</a></li>
-                        <li><a href="https://space.bilibili.com/150209133" target="_blank">Bilibili</a></li>
-                        <li><a href="mailto:dream.qu@qq.com">Email</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        <li><a href="https://space.bilibili.com/" target="_blank">Bilibili</a></li>
+                        <li><a href="mailto:email@example.com">Email</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,14 +46,10 @@
         <div class="footer-info">
             <p>&copy; <?php echo date('Y'); ?> <?php $this->options->title(); ?>. All rights reserved.</p>
             <p>
-                <a href="https://icp.gov.moe/?keyword=20259233" target="_blank">萌ICP备20259233号</a>
-                <a href="https://icp.hentioe.dev/sites/20255198" target="_blank">喵ICP备20255198号</a>
-                <a href="https://icp.redcha.cn/beian/ICP-2025110215.html"><img src="https://icp.redcha.cn/static/picture/icplogoi.png" style="height: 20px;" alt="redcha">茶ICP备2025110215号</a>
-                <a href="https://icp.ekucat.com/beian/2025102333.html" title="KUCAT盟2025102333号" target="_blank"><img
-                        style="height:20px;margin-bottom:5px;"
-                        src="https://icp.ekucat.com/images/icologo.png" alt="ekucat">KUCAT盟2025102333号</a>
+                <a href="https://icp.gov.moe/?keyword=" target="_blank">萌ICP备xxxx号</a>
+                <a href="https://icp.hentioe.dev/sites/" target="_blank">喵ICP备xxxx号</a>
             </p>
-            <p><a href="https://github.com/FoxMoe/foxmoe-blog" target=="_blank">Foxmoe Blog Engine 1.5</a> Based on <a
+            <p><a href="https://github.com/FoxMoe/foxmoe-blog" target=="_blank">Foxmoe Blog Engine 1.6</a> Based on <a
                     href="https://typecho.org" target="_blank">Typecho</a>
             </p>
             <p>Protected by <a
@@ -78,11 +74,6 @@
 
             </div>
             <!-- <p>ICP备案号: <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备XXXXXXXX号</a></p> -->
-            <!-- <p><img src="https://list.mczfw.cn/mc/mc.foxmoe.top.png" lazy /></p> -->
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNRHLLB2" height="0" width="0"
-                    style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
         </div>
     </div>
 </footer>

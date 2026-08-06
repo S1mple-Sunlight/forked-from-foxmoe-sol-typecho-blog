@@ -60,40 +60,6 @@
       toastDuration: <?php echo json_encode(intval(foxmoe_opt('toastDuration', '3000'))); ?>
     };
   </script>
-  <!-- Clarity tracking code for https://foxmoe.top/ -->
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "ss3a1su3uz");
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X6VT5G4FZ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-9X6VT5G4FZ');
-  </script>
-  <!-- Google Ads -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165680876656117"
-     crossorigin="anonymous"></script>
-  <!-- auto ads-->
-<script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PNRHLLB2');</script>
-  <!-- End Google Tag Manager -->
   <!-- 字体 -->
   <link rel="preload" href="<?php $this->options->themeUrl('css/fonts.css'); ?>" as="style">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/fonts.css'); ?>">
@@ -104,9 +70,7 @@
     crossorigin>
 </head>
 <body<?php if (!empty($this->options->runtimeStart)): ?>
-    data-runtime-start="<?php echo htmlspecialchars($this->options->runtimeStart, ENT_QUOTES); ?>" <?php endif; ?>><amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-7165680876656117"></amp-auto-ads>
-  <!--google amp auto ads-->
+    data-runtime-start="<?php echo htmlspecialchars($this->options->runtimeStart, ENT_QUOTES); ?>" <?php endif; ?>>
   <header class="header">
     <nav class="navbar">
       <div class="nav-container">
