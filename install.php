@@ -11,7 +11,7 @@ if (!file_exists(dirname(__FILE__) . '/config.inc.php')) {
     define('__TYPECHO_THEME_DIR__', '/usr/themes');
 
     // admin directory (relative path)
-    define('__TYPECHO_ADMIN_DIR__', '/admin/');
+    define('__TYPECHO_ADMIN_DIR__', '/console/');
 
     // register autoload
     require_once __TYPECHO_ROOT_DIR__ . '/var/Typecho/Common.php';
@@ -411,7 +411,7 @@ define('__TYPECHO_PLUGIN_DIR__', '/usr/plugins');
 define('__TYPECHO_THEME_DIR__', '/usr/themes');
 
 // admin directory (relative path)
-define('__TYPECHO_ADMIN_DIR__', '/admin/');
+define('__TYPECHO_ADMIN_DIR__', '/console/');
 
 // register autoload
 require_once __TYPECHO_ROOT_DIR__ . '/var/Typecho/Common.php';

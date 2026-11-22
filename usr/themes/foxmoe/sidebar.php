@@ -14,53 +14,26 @@
             <h3 class="widget-title">关于我</h3>
             <div class="about-content">
                 <div class="avatar-container">
-                    <img src="<?php $this->options->themeUrl('image/logo/640.png'); ?>" alt="Foxmoe Avatar" class="avatar">
+                    <img src="<?php $this->options->themeUrl('image/site-avatar.png'); ?>" alt="" class="avatar">
                     <div class="avatar-border"></div>
                 </div>
-                <h4 class="author-name">小狐</h4>
-                <p class="author-bio">热爱二次元文化的博主，致力于分享动漫、技术和生活的美好瞬间。</p>
+                <h4 class="author-name">太阳_Sol</h4>
+                <p class="author-bio">热爱游戏和动漫的数码宅一枚，站内常驻非人类。</p>
                 <div class="social-links">
-                    <a href="https://github.com/foxmoe" class="social-link github" target="_blank">
-                        <span class="material-icons">code</span>
-                    </a>
-                    <a href="https://space.bilibili.com/150209133" class="social-link bilibili" target="_blank">
-                        <span class="material-icons">play_circle</span>
-                    </a>
-                    <a href="mailto:dream.qu@qq.com" class="social-link email">
-                        <span class="material-icons">email</span>
-                    </a>
+                    <?php foreach (foxmoe_social_links() as $service => $link): ?>
+                        <a href="<?php echo htmlspecialchars($link['href'], ENT_QUOTES); ?>"
+                            class="social-link <?php echo htmlspecialchars($service, ENT_QUOTES); ?>"
+                            aria-label="<?php echo htmlspecialchars($link['label'], ENT_QUOTES); ?>"
+                            title="<?php echo htmlspecialchars($link['label'], ENT_QUOTES); ?>"
+                            <?php if ($service !== 'email'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
+                            <span class="material-icons" aria-hidden="true"><?php echo htmlspecialchars($link['icon']); ?></span>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
     <?php endif; ?>
 
-
-    <?php if (in_array('ShowCount', $blocks)): ?>
-        <div class="widget count-widget" id="enter-count">
-            <h3 class="widget-title">访问统计</h3>
-            <div class="count-content">
-                <?php
-                if (function_exists('increment_site_enter_count')) {
-                    $enterCount = increment_site_enter_count();
-                } else {
-                    $enterCount = isset($this->options->enterCount) ? $this->options->enterCount : '1';
-                }
-                ?>
-                <div class="enter-count-title-wrapper">
-                    <img class="enter-count-title"
-                        src="<?php echo $this->options->themeUrl('image/entercount/title.png'); ?>" alt="网站访问人数">
-                </div>
-                <div class="enter-count-digits" alt="<?php echo $enterCount; ?>">
-                    <?php $enterCountChar = str_split(str_pad($enterCount, 8, '0', STR_PAD_LEFT));
-                    for ($i = 0; $i < count($enterCountChar); $i++): ?>
-                        <img class="enter-count-digit"
-                            src="<?php echo $this->options->themeUrl('image/entercount/' . $enterCountChar[$i] . '.png'); ?>"
-                            alt="<?php echo $enterCountChar[$i]; ?>">
-                    <?php endfor; ?>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
 
     <?php if (in_array('ShowRecommend', $blocks)): ?>
         <div class="widget recommend-widget">

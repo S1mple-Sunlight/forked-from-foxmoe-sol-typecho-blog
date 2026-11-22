@@ -7,7 +7,6 @@
 <head>
   <meta charset="<?php $this->options->charset(); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="sogou_site_verification" content="zypCQpVIwW" />
   <script>(function () { try { var t = localStorage.getItem('theme') || 'light'; if (t === 'dark') { document.documentElement.classList.add('dark-theme'); document.documentElement.setAttribute('data-theme', 'dark'); } else { document.documentElement.setAttribute('data-theme', 'light'); } } catch (e) { } })();</script>
   <title><?php $this->archiveTitle([
     'category' => _t('分类 %s 下的文章'),
@@ -76,7 +75,7 @@
       <div class="nav-container">
         <div class="nav-brand">
           <a class="nav-logo" href="<?php $this->options->siteUrl(); ?>">
-            <img src="<?php $this->options->themeUrl('image/logo/640_64.png'); ?>" alt="Foxmoe Logo" class="brand-logo">
+            <img src="<?php $this->options->themeUrl('image/logo/site-logo.png'); ?>" alt="" class="brand-logo">
             <span class="brand-text"><?php $this->options->title(); ?></span>
           </a>
         </div>
@@ -86,6 +85,9 @@
                 class="nav-link<?php if ($this->is('index')): ?> active<?php endif; ?>">首页</a></li>
             <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
             <?php while ($pages->next()): ?>
+              <?php if (foxmoe_is_removed_page_template($pages->template)): ?>
+                <?php continue; ?>
+              <?php endif; ?>
               <li><a href="<?php $pages->permalink(); ?>"
                   class="nav-link<?php if ($this->is('page') && $this->slug == $pages->slug): ?> active<?php endif; ?>"><?php $pages->title(); ?></a>
               </li>

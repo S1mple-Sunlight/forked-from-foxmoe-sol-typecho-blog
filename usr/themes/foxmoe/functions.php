@@ -70,27 +70,16 @@ function themeConfig($form)
         'sidebarBlock',
         [
             'ShowAbout' => _t('显示 关于我'),
-            'ShowCount' => _t('显示 访问人数'),
             'ShowRecommend' => _t('显示 推荐阅读'),
             'ShowTagCloud' => _t('显示 标签云'),
             'ShowCategories' => _t('显示 分类目录'),
             'ShowRecentComments' => _t('显示 最新评论'),
         ],
-        ['ShowAbout', 'ShowCount', 'ShowRecommend', 'ShowTagCloud', 'ShowCategories', 'ShowRecentComments'],
+        ['ShowAbout', 'ShowRecommend', 'ShowTagCloud', 'ShowCategories', 'ShowRecentComments'],
         _t('侧边栏显示')
     );
 
     $form->addInput($sidebarBlock->multiMode());
-
-    // 网站访问人数配置
-    $enterCount = new \Typecho\Widget\Helper\Form\Element\Text(
-        'enterCount',
-        NULL,
-        '1',
-        _t('网站访问人数'),
-        _t('用于侧边栏显示网站访问人数组件')
-    );
-    $form->addInput($enterCount);
 
     // ===== Hitokoto 与 Github 图床加速源配置 =====
     $hitokotoRemote = new \Typecho\Widget\Helper\Form\Element\Text(
@@ -157,41 +146,20 @@ function foxmoe_opt($key, $default = null)
     return isset($opt->$key) && $opt->$key !== '' ? $opt->$key : $default;
 }
 
-/**
- * 增加网站访问人数 enterCount
- */
-function increment_site_enter_count($cookieName = 'foxmoe_enter_count', $expire = 3600)
+function foxmoe_social_links(): array
 {
-    if (isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName]) {
-        $opts = Helper::options();
-        return isset($opts->enterCount) ? intval($opts->enterCount) : 0;
-    }
+    return [
+        'github' => ['label' => 'GitHub', 'icon' => 'code', 'href' => 'https://github.com/S1mple-Sunlight'],
+        'bilibili' => ['label' => 'Bilibili', 'icon' => 'play_circle', 'href' => 'https://space.bilibili.com/3546638184352130'],
+        'osu' => ['label' => 'osu!', 'icon' => 'sports_esports', 'href' => 'https://osu.ppy.sh/users/38315407'],
+        'email' => ['label' => '邮箱', 'icon' => 'email', 'href' => 'mailto:sollighthere@qq.com'],
+    ];
+}
 
-    $db = Typecho_Db::get();
-    $themeName = Helper::options()->theme;
-
-    $row = $db->fetchRow($db->select('value')->from('table.options')->where('name = ?', 'theme:' . $themeName));
-
-    $optsRuntime = Helper::options();
-    $current = isset($optsRuntime->enterCount) ? intval($optsRuntime->enterCount) : 0;
-    $newCount = $current + 1;
-
-    if ($row && isset($row['value'])) {
-        $value = @unserialize($row['value']);
-        if (!is_array($value)) {
-            $value = array();
-        }
-        $value['enterCount'] = strval($newCount);
-
-        try {
-            $db->query($db->update('table.options')->rows(array('value' => serialize($value)))->where('name = ?', 'theme:' . $themeName));
-        } catch (Exception $e) {
-        }
-    }
-
-    setcookie($cookieName, '1', time() + $expire, '/');
-
-    return $newCount;
+function foxmoe_is_removed_page_template(?string $template): bool
+{
+    // 已发布的独立页面仍可能保存旧模板文件名。
+    return in_array($template, ['page-galgame.php', 'page-gallist.php'], true);
 }
 
 /**
@@ -297,6 +265,10 @@ function get_and_update_post_view($archive)
  */
 function themeInit($archive)
 {
+    if ($archive->is('page') && foxmoe_is_removed_page_template($archive->template)) {
+        throw new \Typecho\Widget\Exception(_t('请求的地址不存在'), 404);
+    }
+
     // 启用缩略名
     if ($archive->is('single')) {
         $archive->content = preg_replace('/\[more\]/', '<!-- more -->', $archive->content);

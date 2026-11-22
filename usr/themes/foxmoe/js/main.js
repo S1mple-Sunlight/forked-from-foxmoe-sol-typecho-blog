@@ -305,7 +305,6 @@ const App = {
         }
 
         this.ensureArchiveCss();
-        this.ensureGalListRender();
         if (!$.support.pjax) {
             return;
         }
@@ -313,7 +312,7 @@ const App = {
         console.log(`%cFoxmoe Blog Engine v1.6 %cMade with %c❤ %c!`, 'color: magenta;', 'color: white;', 'color: red;', 'color: white;');
 
         $(document).pjax(
-            'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="javascript:"])',
+            'a[href]:not([data-pjax="false"]):not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([href^="javascript:"])',
             '.main-container',
             { fragment: '.main-container', timeout: 8000 }
         );
@@ -337,8 +336,6 @@ const App = {
             this.initMarkdown();
             this.initHightight();
             this.initCardClick();
-
-            this.ensureGalListRender();
 
             if (window.Components && typeof Components.initTooltips === 'function') {
                 Components.initTooltips();
@@ -368,21 +365,6 @@ const App = {
                 }
             }
         } catch (e) {
-        }
-    },
-
-    ensureGalListRender() {
-        try {
-            if (document.getElementById('gal-list')) {
-                if (typeof initGameList === 'function') {
-                    try { initGameList(); } catch (e) { console.error('initGameList threw', e); }
-                } else {
-                    console.warn('initGameList is not defined; make sure js/gal-list.js is loaded');
-                    location.reload(true);
-                }
-            }
-        } catch (e) {
-            console.error('initGameList on pjax:end failed', e);
         }
     },
 
