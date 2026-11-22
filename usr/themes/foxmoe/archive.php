@@ -35,7 +35,7 @@
                     </p>
                     <div class="post-meta">
                       <div class="post-author">
-                        <img src="<?php $this->options->themeUrl('image/logo/640.png'); ?>" alt="<?php $this->author(); ?>"
+                        <img src="<?php $this->options->themeUrl('image/site-avatar.png'); ?>" alt="<?php $this->author(); ?>"
                           class="author-avatar">
                         <span><?php $this->author(); ?></span>
                       </div>

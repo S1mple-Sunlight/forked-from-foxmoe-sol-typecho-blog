@@ -90,7 +90,7 @@ $this->need('header.php');
                                     </p>
                                     <div class="post-meta">
                                         <div class="post-author">
-                                            <img src="<?php $this->options->themeUrl('image/logo/640.png'); ?>"
+                                            <img src="<?php $this->options->themeUrl('image/site-avatar.png'); ?>"
                                                 alt="<?php $this->author(); ?>" class="author-avatar">
                                             <span><?php $this->author(); ?></span>
                                             <span class="post-date"><?php $this->date('Y-m-d'); ?></span>

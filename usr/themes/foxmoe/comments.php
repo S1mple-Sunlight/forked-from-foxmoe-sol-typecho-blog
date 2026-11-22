@@ -54,7 +54,9 @@
                         </div>
                     </div>
                 <?php else: ?>
-                    <p class="comment-form-subtitle">想要<a href="https://foxmoe.top/console">注册一个Foxmoe通行证</a>?</p>
+                    <?php if ($this->options->allowRegister): ?>
+                        <p class="comment-form-subtitle"><a href="<?php $this->options->registerUrl(); ?>" data-pjax="false">注册本站账号</a></p>
+                    <?php endif; ?>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="author" class="form-label required">

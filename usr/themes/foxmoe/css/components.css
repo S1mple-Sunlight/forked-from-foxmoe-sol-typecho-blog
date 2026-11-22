@@ -125,20 +125,6 @@
   background: #ea4335;
 }
 
-/* 访问人数统计 */
-.enter-count-title {
-  height: 32px;
-}
-
-.enter-count-digits{
-  display: flex;
-  justify-content: right;
-}
-
-.enter-count-digit {
-  height: 28px;
-}
-
 /* 推荐阅读 */
 .recommend-item { display: flex; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-lg); transition: all var(--transition-fast); cursor: var(--cursor-pointer); }
 .recommend-item:hover { background: var(--surface-color); }

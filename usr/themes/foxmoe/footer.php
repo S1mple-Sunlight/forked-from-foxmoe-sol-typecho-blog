@@ -4,12 +4,15 @@
     <div class="footer-content">
         <div class="footer-left">
             <div class="footer-logo">
-                <img src="<?php $this->options->themeUrl('image/logo/640_64.png'); ?>" alt="Foxmoe Logo" class="logo">
+                <img src="<?php $this->options->themeUrl('image/logo/site-logo.png'); ?>" alt="" class="logo">
                 <div class="logo-text">
                     <h3><?php $this->options->title(); ?></h3>
                     <p>快乐是第一生产力，拒绝内卷式学习!</p>
                 </div>
             </div>
+            <img class="footer-visit-counter"
+                src="https://count.getloli.com/@sunlight_blog?theme=rule34&amp;padding=7&amp;offset=1&amp;align=center&amp;scale=1&amp;pixelated=1&amp;darkmode=0"
+                alt="网站访问计数器">
         </div>
         <div class="footer-right">
             <div class="footer-links">
@@ -20,23 +23,31 @@
                         <li><a href="<?php $this->options->siteUrl(); ?>/archives.html">归档</a></li>
                         <li><a href="<?php $this->options->siteUrl(); ?>/console">控制台</a></li>
                         <li><a href="<?php $this->options->siteUrl(); ?>/about.html">关于</a></li>
-                    </ul>
-                </div>
-                <div class="link-group">
-                    <h4>快速链接</h4>
-                    <ul>
-                        <li><a href="https://example.com" target="_blank">示例</a></li>
-                        <li><a href="https://example.com" target="_blank">示例</a></li>
                         <li><a href="/rss.xml">RSS</a></li>
                         <li><a href="/sitemap.xml">网站地图</a></li>
                     </ul>
                 </div>
                 <div class="link-group">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="https://www.cauc.fun/" target="_blank" rel="noopener noreferrer">CAUCraft</a></li>
+                        <li><a href="https://skin.cauc.fun/" target="_blank" rel="noopener noreferrer">CAUCraft皮肤站V5</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
                     <h4>联系方式</h4>
                     <ul>
-                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-                        <li><a href="https://space.bilibili.com/" target="_blank">Bilibili</a></li>
-                        <li><a href="mailto:email@example.com">Email</a></li>
+                        <?php foreach (foxmoe_social_links() as $service => $link): ?>
+                            <?php if ($service === 'osu'): ?>
+                                <?php continue; ?>
+                            <?php endif; ?>
+                            <li>
+                                <a href="<?php echo htmlspecialchars($link['href'], ENT_QUOTES); ?>"
+                                    <?php if ($service !== 'email'): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>>
+                                    <?php echo htmlspecialchars($link['label']); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -46,34 +57,15 @@
         <div class="footer-info">
             <p>&copy; <?php echo date('Y'); ?> <?php $this->options->title(); ?>. All rights reserved.</p>
             <p>
-                <a href="https://icp.gov.moe/?keyword=" target="_blank">萌ICP备xxxx号</a>
-                <a href="https://icp.hentioe.dev/sites/" target="_blank">喵ICP备xxxx号</a>
+                <a href=" " target="_blank">萌ICP备20267747号</a>
             </p>
             <p><a href="https://github.com/FoxMoe/foxmoe-blog" target=="_blank">Foxmoe Blog Engine 1.6</a> Based on <a
                     href="https://typecho.org" target="_blank">Typecho</a>
             </p>
             <p>Protected by <a
-                    href="https://anubis.techaro.lol/" target="_blank">Anubis</a>
+                    href="https://www.cloudflare.com/" target="_blank">Cloudflare</a>
                     <span> 网站已经运行了: <span id="runtime">0天0小时0分钟</span></span>
                     </p>
-            <div style="display: flex;justify-items: center;justify-content: center;align-items: baseline;">
-                <!-- 不算子 -->
-                <a href="https://www.busuanzi.cc/count.php?search=foxmoe.top" title="不蒜子统计" target="_blank">
-                    <img style="width:85px;height:25px;" src="https://www.busuanzi.cc/static/images/bsz-tongji.png" alt="busuanzi">
-                </a>
-                <!-- MySSL SSL -->
-                <a href="https://myssl.com/foxmoe.top?from=mysslid"><img
-                        src="https://static.myssl.com/res/images/myssl-id1.png" alt="MySSL"
-                        style="max-height:50px;display:block;margin:0 auto"></a>
-
-                <!-- Trust SSL -->
-                <a onclick="window.open('https://www.trustssl.cc/trust.php?sn=Zm94bW9lLnRvcA==','Trust SSL安全签章','height=1000,width=560')"
-                    title="Trust SSL安全认证签章" target="_blank">
-                    <img src="https://static.coolcdn.cn/images/TrustSSL.png" style="width:100px;height:36px;" alt="TrustSSL">
-                </a>
-
-            </div>
-            <!-- <p>ICP备案号: <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备XXXXXXXX号</a></p> -->
         </div>
     </div>
 </footer>
@@ -103,8 +95,6 @@
 <script src="<?php $this->options->themeUrl('js/jquery.pjax.min.js'); ?>" defer></script>
 <script src="<?php $this->options->themeUrl('js/components.js'); ?>" defer></script>
 <script src="<?php $this->options->themeUrl('js/main.js'); ?>" defer></script>
-<script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" async></script>
-<script src="https://vercount.one/js" async></script>
 </body>
 
 </html>
