@@ -26,8 +26,8 @@ include 'header.php';
   </div>
   <div class="foxmoe-login-panel fade-in-scale">
     <div class="foxmoe-login-header">
-      <h2 class="title">登录到</h2>
-      <div class="subtitle">Foxmoe通行证账户</div>
+      <h2 class="title">登录账号</h2>
+      <div class="subtitle"><?php echo htmlspecialchars($options->title); ?></div>
     </div>
     <form action="<?php $options->loginAction(); ?>" method="post" name="login" role="form">
       <div class="foxmoe-field">

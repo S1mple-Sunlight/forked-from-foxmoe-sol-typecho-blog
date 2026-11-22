@@ -18,6 +18,9 @@ $header = \Typecho\Plugin::factory('admin/header.php')->header($header);
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title><?php _e('%s - %s - Powered by Typecho', $menu->title, $options->title); ?></title>
         <meta name="robots" content="noindex, nofollow">
+        <?php if ($options->theme === 'foxmoe'): ?>
+            <link rel="icon" type="image/png" href="<?php $options->themeUrl('image/logo/site-logo.png'); ?>">
+        <?php endif; ?>
         <?php echo $header; ?>
     </head>
     <body<?php if (isset($bodyClass)) {echo ' class="' . $bodyClass . '"';} ?>>

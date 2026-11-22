@@ -7,7 +7,7 @@
                 <img src="<?php $this->options->themeUrl('image/logo/site-logo.png'); ?>" alt="" class="logo">
                 <div class="logo-text">
                     <h3><?php $this->options->title(); ?></h3>
-                    <p>快乐是第一生产力，拒绝内卷式学习!</p>
+                    <p>——<strong>Vanitas Vanitatum Et Omnia Vanitas</strong></p>
                 </div>
             </div>
             <img class="footer-visit-counter"

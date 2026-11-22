@@ -257,7 +257,7 @@ function install_get_default_options(): array
             'contentType' => 'text/html',
             'gzip' => 0,
             'generator' => 'Typecho ' . \Typecho\Common::VERSION,
-            'title' => 'Hello World',
+            'title' => '演示博客',
             'description' => 'Your description here.',
             'keywords' => 'typecho,php,blog',
             'rewrite' => 0,

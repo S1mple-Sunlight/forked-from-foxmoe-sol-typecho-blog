@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/comments.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/utilities.css'); ?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/bg-motion.css'); ?>">
-  <link rel="icon" type="image/x-icon" href="https://foxmoe.top/favicon.ico">
+  <link rel="icon" type="image/png" href="<?php $this->options->themeUrl('image/logo/site-logo.png'); ?>">
   <?php $this->header(); ?>
   <script>
     // 模块化 CSS
